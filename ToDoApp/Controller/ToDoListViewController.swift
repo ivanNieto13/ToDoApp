@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ToDoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ToDoListViewController: UIViewController {
     
     @IBOutlet var toDoListTableView: UITableView!
     
@@ -18,6 +18,9 @@ class ToDoListViewController: UIViewController, UITableViewDelegate, UITableView
         toDoListTableView.dataSource = self
     }
     
+}
+
+extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
@@ -25,16 +28,4 @@ class ToDoListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         UITableViewCell()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

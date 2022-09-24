@@ -1,0 +1,9 @@
+
+/* Class = "UITableViewSection"; headerTitle = "Title"; ObjectID = "FgN-g1-WRe"; */
+"FgN-g1-WRe.headerTitle" = "Title";
+
+/* Class = "UITableViewSection"; headerTitle = "Notas"; ObjectID = "d7H-JX-pr5"; */
+"d7H-JX-pr5.headerTitle" = "Notas";
+
+/* Class = "UITableViewSection"; headerTitle = "Fecha"; ObjectID = "u6X-FB-vRH"; */
+"u6X-FB-vRH.headerTitle" = "Fecha";
