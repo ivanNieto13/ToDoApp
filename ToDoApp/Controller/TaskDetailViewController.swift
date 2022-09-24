@@ -20,7 +20,15 @@ class TaskDetailViewController: UITableViewController {
 
     }
 
-
+    @IBAction func cancelAddTaskButtonPressed(_ sender: UIBarButtonItem) {
+        let isModal = self.presentingViewController is UINavigationController
+        if isModal {
+            self.dismiss(animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
 //    override func numberOfSections(in tableView: UITableView) -> Int {
 //        // #warning Incomplete implementation, return the number of sections
 //        return 3
