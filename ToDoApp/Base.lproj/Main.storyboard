@@ -19,6 +19,33 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7Q9-fN-NRD">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="H5h-ED-OII" customClass="ToDoTaskTableViewCell" customModule="ToDoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H5h-ED-OII" id="aa5-2A-cxN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UML-30-JNY">
+                                                    <rect key="frame" x="26" y="11.5" width="323" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UML-30-JNY" firstAttribute="leading" secondItem="aa5-2A-cxN" secondAttribute="leadingMargin" constant="10" id="JVo-5z-CXT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UML-30-JNY" secondAttribute="trailing" constant="10" id="Kf1-dL-JD8"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UML-30-JNY" secondAttribute="bottom" id="sYp-SM-sCA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="taskTitleLabel" destination="UML-30-JNY" id="ogq-Zf-qFu"/>
+                                            <segue destination="UAX-Jy-3Mh" kind="show" id="2pE-UQ-nCf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -31,8 +58,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Q9-fN-NRD" secondAttribute="bottom" id="zOy-SG-jvB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PHe-ex-CAF"/>
+                    <navigationItem key="navigationItem" id="PHe-ex-CAF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qOf-DT-l5L">
+                            <connections>
+                                <segue destination="8xl-L3-KJv" kind="presentation" identifier="addTaskSegue" id="1zz-Sd-bI9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addTaskButton" destination="qOf-DT-l5L" id="ryB-m0-eKk"/>
                         <outlet property="toDoListTableView" destination="7Q9-fN-NRD" id="b3E-Pg-8jf"/>
                     </connections>
                 </viewController>
@@ -134,8 +168,13 @@
                             <outlet property="delegate" destination="UAX-Jy-3Mh" id="afj-oe-4LV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HTx-pc-BrS"/>
+                    <navigationItem key="navigationItem" id="HTx-pc-BrS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lOT-QC-7X0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aOf-cx-uDq"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="cancelAddTaskButton" destination="lOT-QC-7X0" id="Tjv-fe-zGK"/>
+                        <outlet property="saveTaskButton" destination="aOf-cx-uDq" id="8wd-TE-V86"/>
                         <outlet property="taskDetailDatePicker" destination="rki-WG-mJq" id="VQx-Pl-Zlx"/>
                         <outlet property="taskDetailNotesTextView" destination="uon-ng-vxe" id="w0f-lw-bG5"/>
                         <outlet property="taskDetailTextField" destination="f0k-Ol-ING" id="CZB-4r-Ldo"/>
@@ -169,7 +208,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8xl-L3-KJv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cn3-wD-XRt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -182,6 +221,9 @@
             <point key="canvasLocation" x="1900" y="-470"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="2pE-UQ-nCf"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

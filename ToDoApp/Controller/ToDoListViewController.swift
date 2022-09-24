@@ -10,6 +10,7 @@ import UIKit
 class ToDoListViewController: UIViewController {
     
     @IBOutlet var toDoListTableView: UITableView!
+    @IBOutlet var addTaskButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()

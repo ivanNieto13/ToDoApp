@@ -17,6 +17,7 @@
 		7B93D80328DE81AB00186CD7 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93D80228DE81AB00186CD7 /* ToDoListViewController.swift */; };
 		7B93D80528DE871F00186CD7 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93D80428DE871F00186CD7 /* TaskDetailViewController.swift */; };
 		7B93D80828DE8B6200186CD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B93D80628DE8B6200186CD7 /* Localizable.strings */; };
+		7BA6CBD628DF504400C951B6 /* ToDoTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA6CBD528DF504400C951B6 /* ToDoTaskTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		7B93D80C28DE8C5200186CD7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		7B93D80D28DE8C5200186CD7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7B93D80E28DE8C5200186CD7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7BA6CBD528DF504400C951B6 /* ToDoTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTaskTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		7B93D7E928DE806100186CD7 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				7BA6CBD428DF4FEA00C951B6 /* View */,
 				7B93D80128DE816900186CD7 /* Controller */,
 				7B93D7EA28DE806100186CD7 /* AppDelegate.swift */,
 				7B93D7EC28DE806100186CD7 /* SceneDelegate.swift */,
@@ -88,6 +91,14 @@
 				7B93D80428DE871F00186CD7 /* TaskDetailViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		7BA6CBD428DF4FEA00C951B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7BA6CBD528DF504400C951B6 /* ToDoTaskTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 			files = (
 				7B93D80528DE871F00186CD7 /* TaskDetailViewController.swift in Sources */,
 				7B93D7EF28DE806100186CD7 /* ViewController.swift in Sources */,
+				7BA6CBD628DF504400C951B6 /* ToDoTaskTableViewCell.swift in Sources */,
 				7B93D7EB28DE806100186CD7 /* AppDelegate.swift in Sources */,
 				7B93D7ED28DE806100186CD7 /* SceneDelegate.swift in Sources */,
 				7B93D80328DE81AB00186CD7 /* ToDoListViewController.swift in Sources */,
