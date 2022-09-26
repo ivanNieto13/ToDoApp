@@ -10,6 +10,7 @@ import UIKit
 class ToDoTaskTableViewCell: UITableViewCell {
 
     @IBOutlet var taskTitleLabel: UILabel!
+    var taskTitle: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
