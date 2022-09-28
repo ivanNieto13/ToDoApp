@@ -11,6 +11,7 @@ class ToDoListViewController: UIViewController {
     
     @IBOutlet var toDoListTableView: UITableView!
     @IBOutlet var addTaskButton: UIBarButtonItem!
+    @IBOutlet var editTaskButton: UIBarButtonItem!
     
     let context = (UIApplication.shared.delegate! as! AppDelegate).persistentContainer.viewContext
     var currentTask: Task?
@@ -24,9 +25,7 @@ class ToDoListViewController: UIViewController {
         
         let dataManager = TaskDataManager(context: self.context)
         tasks = dataManager.fetch()
-        print("Tasks")
     }
-    
 }
 
 extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -49,17 +48,29 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: "taskDetailSegue", sender: Self.self)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            currentTask = self.tasks[indexPath.row]
+            self.context.delete(currentTask!)
+            do {
+                try self.context.save()
+            } catch {
+                print("Error: ", error)
+            }
+        }
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "taskDetailSegue" {
             let destination = segue.destination as! TaskDetailViewController
             let selectedIndexPath = toDoListTableView.indexPathForSelectedRow!
-            print("->", tasks[selectedIndexPath.row])
             destination.toDoDetailTask = tasks[selectedIndexPath.row]
             
         }
     }
     
-    @IBAction  func unWindFromDetail(segue: UIStoryboardSegue ){
+    @IBAction  func unWindFromDetail(segue: UIStoryboardSegue) {
             let source = segue.source as! TaskDetailViewController
             currentTask = source.toDoDetailTask
             do{
@@ -72,7 +83,20 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             let dataManager = TaskDataManager(context: context)
             tasks = dataManager.fetch()
             self.toDoListTableView.reloadData()
+    }
+    
+    @IBAction func editTaskButton(_ sender: UIBarButtonItem) {
+        if toDoListTableView.isEditing {
+            toDoListTableView.setEditing(false, animated: true)
+            sender.title = "Editar"
+            addTaskButton.isEnabled = true
+        } else {
+            toDoListTableView.setEditing(true, animated: true)
+            sender.title = "Listo"
+            addTaskButton.isEnabled = false
         }
+    }
+    
     
         
     

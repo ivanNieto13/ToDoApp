@@ -73,6 +73,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PHe-ex-CAF">
+                        <barButtonItem key="leftBarButtonItem" title="Editar" id="tE0-OP-xda" userLabel="editTaskButton">
+                            <connections>
+                                <action selector="editTaskButton:" destination="BYZ-38-t0r" id="Pxu-Jf-8VK"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qOf-DT-l5L">
                             <connections>
                                 <segue destination="8xl-L3-KJv" kind="presentation" identifier="addTaskSegue" id="1zz-Sd-bI9"/>
@@ -81,6 +86,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addTaskButton" destination="qOf-DT-l5L" id="ryB-m0-eKk"/>
+                        <outlet property="editTaskButton" destination="tE0-OP-xda" id="vPK-oC-FQG"/>
                         <outlet property="toDoListTableView" destination="7Q9-fN-NRD" id="b3E-Pg-8jf"/>
                         <segue destination="UAX-Jy-3Mh" kind="show" identifier="taskDetailSegue" id="ibw-Zf-A9Z"/>
                     </connections>
