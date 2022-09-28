@@ -30,23 +30,24 @@ class TaskDetailViewController: UITableViewController {
             toDoDetailTask?.id_task = UUID()
             taskDetailTextField.text = ""
         }
+        setupTextFields()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! ToDoListViewController
         toDoDetailTask?.notes = taskDetailNotesTextView.text
         toDoDetailTask?.title = taskDetailTextField.text
-        taskDetailDatePicker?.date = taskDetailDatePicker.date
-        
-        print("UUID:", toDoDetailTask?.id_task?.description)
-        
-//         destination.current = toDoDetailTask
+        toDoDetailTask?.date = taskDetailDatePicker.date
+        if ((toDoDetailTask?.id_task?.uuidString.isEmpty) != nil) {
+            toDoDetailTask?.id_task = UUID()
+        }
+        destination.currentTask = toDoDetailTask
         
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         var perform = false
-        if validateText(text: (taskDetailTextField?.text)!) {
+        if validateText(text: taskDetailTextField.text!) {
             perform = true
         } else {
             userMessage(alertTitle: "Atención", message: "Escriba un texto para la actividad", actionTitle: "Ok", vc: self)
@@ -63,14 +64,20 @@ class TaskDetailViewController: UITableViewController {
         }
     }
     
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 3
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 1
-//    }
+    func setupTextFields() {
+        let toolbar = UIToolbar()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Listo", style: .done, target: self, action: #selector(doneButtonTapped) )
+        
+        toolbar.setItems([flexSpace, doneButton], animated: true)
+        toolbar.sizeToFit()
+        
+        taskDetailTextField.inputAccessoryView = toolbar
+        taskDetailNotesTextView.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneButtonTapped() {
+        view.endEditing(true)
+    }
 
 }

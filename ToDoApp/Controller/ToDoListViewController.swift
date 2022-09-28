@@ -14,9 +14,7 @@ class ToDoListViewController: UIViewController {
     
     let context = (UIApplication.shared.delegate! as! AppDelegate).persistentContainer.viewContext
     var currentTask: Task?
-    var tasks: [Task]?
-    
-    var dataManager: TaskDataManager?
+    var tasks: [Task] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,20 +22,26 @@ class ToDoListViewController: UIViewController {
         toDoListTableView.delegate = self
         toDoListTableView.dataSource = self
         
-        dataManager = TaskDataManager(context: self.context)
-        tasks = dataManager!.fetch()
+        let dataManager = TaskDataManager(context: self.context)
+        tasks = dataManager.fetch()
+        print("Tasks")
     }
     
 }
 
 extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (dataManager?.countTasks())!
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "toDoTaskCell") as! ToDoTaskTableViewCell
-        cell.taskTitleLabel.text = dataManager?.getTask(index: indexPath.row).title
+        let row = indexPath.row
+        print(tasks[row])
+        cell.taskTitleLabel.text = tasks[row].title
+        cell.taskDate = tasks[row].date
+        cell.taskNotes = tasks[row].notes
+        cell.taskUUID = tasks[row].id_task?.description
         return cell
     }
     
@@ -45,13 +49,23 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: "taskDetailSegue", sender: Self.self)
     }
     
-    @IBAction  func unWindFromDetail(segue: UIStoryboardSegue){
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "taskDetailSegue" {
+            let destination = segue.destination as! TaskDetailViewController
+            let selectedIndexPath = toDoListTableView.indexPathForSelectedRow!
+            print("->", tasks[selectedIndexPath.row])
+            destination.toDoDetailTask = tasks[selectedIndexPath.row]
+            
+        }
+    }
+    
+    @IBAction  func unWindFromDetail(segue: UIStoryboardSegue ){
             let source = segue.source as! TaskDetailViewController
             currentTask = source.toDoDetailTask
-            do {
+            do{
                 try context.save()
             }
-            catch {
+            catch{
                 print("error al salvar",error)
             }
             
@@ -59,5 +73,8 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             tasks = dataManager.fetch()
             self.toDoListTableView.reloadData()
         }
+    
+        
+    
 
 }

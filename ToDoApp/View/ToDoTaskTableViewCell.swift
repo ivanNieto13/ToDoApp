@@ -10,7 +10,10 @@ import UIKit
 class ToDoTaskTableViewCell: UITableViewCell {
 
     @IBOutlet var taskTitleLabel: UILabel!
-    var taskTitle: String = ""
+    var taskUUID : String?
+    var taskTitle: String?
+    var taskDate: Date?
+    var taskNotes: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()

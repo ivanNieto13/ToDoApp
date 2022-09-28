@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fYV-wl-TWb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21503.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fYV-wl-TWb">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21501.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +42,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="taskTitleLabel" destination="UML-30-JNY" id="ogq-Zf-qFu"/>
-                                            <segue destination="UAX-Jy-3Mh" kind="show" identifier="taskDetailSegue" id="2pE-UQ-nCf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -68,6 +67,7 @@
                     <connections>
                         <outlet property="addTaskButton" destination="qOf-DT-l5L" id="ryB-m0-eKk"/>
                         <outlet property="toDoListTableView" destination="7Q9-fN-NRD" id="b3E-Pg-8jf"/>
+                        <segue destination="UAX-Jy-3Mh" kind="show" identifier="taskDetailSegue" id="ibw-Zf-A9Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -108,7 +108,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Fecha" id="u6X-FB-vRH">
+                            <tableViewSection headerTitle="Fecha" id="u6X-FB-vRH" userLabel="taskDate">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DPq-Gx-NEK">
                                         <rect key="frame" x="0.0" y="162.5" width="375" height="216.5"/>
@@ -146,7 +146,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="1Qv-5y-EHp"/>
                                                     </constraints>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -169,22 +168,27 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="HTx-pc-BrS">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lOT-QC-7X0">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="lOT-QC-7X0">
                             <connections>
                                 <action selector="cancelAddTaskButtonPressed:" destination="UAX-Jy-3Mh" id="Kzp-fA-ZDq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aOf-cx-uDq"/>
+                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="aOf-cx-uDq">
+                            <connections>
+                                <segue destination="2hO-yO-L8h" kind="unwind" unwindAction="unWindFromDetailWithSegue:" id="bQG-nf-IHh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cancelAddTaskButton" destination="lOT-QC-7X0" id="Tjv-fe-zGK"/>
                         <outlet property="saveTaskButton" destination="aOf-cx-uDq" id="8wd-TE-V86"/>
                         <outlet property="taskDetailDatePicker" destination="rki-WG-mJq" id="VQx-Pl-Zlx"/>
-                        <outlet property="taskDetailNotesTextView" destination="uon-ng-vxe" id="w0f-lw-bG5"/>
+                        <outlet property="taskDetailNotesTextView" destination="uon-ng-vxe" id="O5N-JB-7cm"/>
                         <outlet property="taskDetailTextField" destination="f0k-Ol-ING" id="CZB-4r-Ldo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99I-X7-DCc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="2hO-yO-L8h" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2784.8000000000002" y="-2.2488755622188905"/>
         </scene>
@@ -226,7 +230,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2pE-UQ-nCf"/>
+        <segue reference="ibw-Zf-A9Z"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
