@@ -25,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B76592528E4040D008C0FDE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		7B76592628E4040D008C0FDE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		7B76592728E4040D008C0FDE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7B76592828E40485008C0FDE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Main.strings"; sourceTree = "<group>"; };
+		7B76592928E40485008C0FDE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		7B76592A28E40485008C0FDE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		7B93D7E728DE806100186CD7 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B93D7EA28DE806100186CD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B93D7EC28DE806100186CD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,9 +43,6 @@
 		7B93D80228DE81AB00186CD7 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		7B93D80428DE871F00186CD7 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		7B93D80728DE8B6200186CD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7B93D80C28DE8C5200186CD7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		7B93D80D28DE8C5200186CD7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		7B93D80E28DE8C5200186CD7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7BA6CBD528DF504400C951B6 /* ToDoTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTaskTableViewCell.swift; sourceTree = "<group>"; };
 		7BF7A14528DF6E15007260A9 /* TaskDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataManager.swift; sourceTree = "<group>"; };
 		7BF7A14728DF6E25007260A9 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -172,6 +175,7 @@
 				en,
 				Base,
 				fr,
+				"es-419",
 			);
 			mainGroup = 7B93D7DE28DE806100186CD7;
 			productRefGroup = 7B93D7E828DE806100186CD7 /* Products */;
@@ -223,7 +227,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				7B93D7F128DE806100186CD7 /* Base */,
-				7B93D80C28DE8C5200186CD7 /* fr */,
+				7B76592528E4040D008C0FDE /* fr */,
+				7B76592828E40485008C0FDE /* es-419 */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -232,7 +237,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				7B93D7F928DE806100186CD7 /* Base */,
-				7B93D80D28DE8C5200186CD7 /* fr */,
+				7B76592628E4040D008C0FDE /* fr */,
+				7B76592928E40485008C0FDE /* es-419 */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -241,7 +247,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				7B93D80728DE8B6200186CD7 /* Base */,
-				7B93D80E28DE8C5200186CD7 /* fr */,
+				7B76592728E4040D008C0FDE /* fr */,
+				7B76592A28E40485008C0FDE /* es-419 */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

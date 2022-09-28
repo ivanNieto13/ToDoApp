@@ -19,9 +19,23 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7Q9-fN-NRD">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="o5a-xQ-USa">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eP2-Hh-2He" userLabel="toDoList">
+                                            <rect key="frame" x="8" y="8" width="359" height="64"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="34"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoTaskCell" id="H5h-ED-OII" customClass="ToDoTaskTableViewCell" customModule="ToDoApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="122" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H5h-ED-OII" id="aa5-2A-cxN">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -52,6 +66,7 @@
                         <constraints>
                             <constraint firstItem="7Q9-fN-NRD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KHF-Uw-Thq"/>
                             <constraint firstItem="7Q9-fN-NRD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ORF-gQ-QJO"/>
+                            <constraint firstItem="7Q9-fN-NRD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ong-YD-Gly"/>
                             <constraint firstItem="7Q9-fN-NRD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bnG-UY-OGd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Q9-fN-NRD" secondAttribute="trailing" id="xRo-U2-zps"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Q9-fN-NRD" secondAttribute="bottom" id="zOy-SG-jvB"/>
@@ -72,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.92307692307691" y="-2.1327014218009479"/>
+            <point key="canvasLocation" x="976.79999999999995" y="-2.2488755622188905"/>
         </scene>
         <!--Task Detail View Controller-->
         <scene sceneID="fLL-u6-ET4">
@@ -83,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Title" id="FgN-g1-WRe">
+                            <tableViewSection headerTitle="Titulo" id="FgN-g1-WRe" userLabel="taskTitle">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2tz-iV-DxV">
                                         <rect key="frame" x="0.0" y="50" width="375" height="34.5"/>
@@ -131,7 +146,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Notas" id="d7H-JX-pr5">
+                            <tableViewSection headerTitle="Notas" id="d7H-JX-pr5" userLabel="taskNotes">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4Sl-S1-uYU">
                                         <rect key="frame" x="0.0" y="457" width="375" height="220.5"/>

@@ -1,21 +1,21 @@
 /* Class = "UIBarButtonItem"; title = "Guardar"; ObjectID = "aOf-cx-uDq"; */
-"aOf-cx-uDq.title" = "Sauvegarder";
+"aOf-cx-uDq.title" = "Guardar";
 
 /* Class = "UITableViewSection"; headerTitle = "Notas"; ObjectID = "d7H-JX-pr5"; */
-"d7H-JX-pr5.headerTitle" = "Notes";
+"d7H-JX-pr5.headerTitle" = "Notas";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "eP2-Hh-2He"; */
-"eP2-Hh-2He.text" = "Choses à faire";
+"eP2-Hh-2He.text" = "Lista de Tareas";
 
 /* Class = "UITableViewSection"; headerTitle = "Titulo"; ObjectID = "FgN-g1-WRe"; */
-"FgN-g1-WRe.headerTitle" = "Titre";
+"FgN-g1-WRe.headerTitle" = "Título";
 
 /* Class = "UIBarButtonItem"; title = "Cancelar"; ObjectID = "lOT-QC-7X0"; */
-"lOT-QC-7X0.title" = "Annuler";
+"lOT-QC-7X0.title" = "Cancelar";
 
 /* Class = "UITableViewSection"; headerTitle = "Fecha"; ObjectID = "u6X-FB-vRH"; */
-"u6X-FB-vRH.headerTitle" = "Date";
+"u6X-FB-vRH.headerTitle" = "Fecha";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "UML-30-JNY"; */
-"UML-30-JNY.text" = "Choses à faire";
+"UML-30-JNY.text" = "Lista de Tareas";
 
