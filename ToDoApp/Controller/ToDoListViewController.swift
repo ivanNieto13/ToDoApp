@@ -36,7 +36,6 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "toDoTaskCell") as! ToDoTaskTableViewCell
         let row = indexPath.row
-        print(tasks[row])
         cell.taskTitleLabel.text = tasks[row].title
         cell.taskDate = tasks[row].date
         cell.taskNotes = tasks[row].notes
@@ -54,6 +53,8 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             self.context.delete(currentTask!)
             do {
                 try self.context.save()
+                self.tasks.remove(at: indexPath.row)
+                tableView.reloadData()
             } catch {
                 print("Error: ", error)
             }
